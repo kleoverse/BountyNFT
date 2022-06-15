@@ -1,5 +1,6 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { ethers } from "hardhat";
+import { BountyNFT, BountyNFT__factory } from "../../typechain";
 import { Signers } from "../types";
 import { shouldBehaveLikeBountyNFT } from "./BountyNFT.behavior";
 
@@ -14,8 +15,10 @@ describe("Unit Tests", function () {
 
   describe("BountyNFT", function () {
     beforeEach(async function () {
-      this.BountyNFTFactory = await ethers.getContractFactory("BountyNFT");
-      this.bountyNFT = await this.BountyNFTFactory.deploy();
+      this.BountyNFTFactory = <BountyNFT__factory>(
+        await ethers.getContractFactory("BountyNFT")
+      );
+      this.bountyNFT = <BountyNFT>await this.BountyNFTFactory.deploy();
       await this.bountyNFT.deployed();
     });
 

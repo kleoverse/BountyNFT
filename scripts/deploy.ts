@@ -4,6 +4,7 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
+import { BountyNFT, BountyNFT__factory } from "../typechain";
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -14,8 +15,10 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const BountyNFTFactory = await ethers.getContractFactory("BountyNFT");
-  const bountyNFT = await BountyNFTFactory.deploy();
+  const BountyNFTFactory: BountyNFT__factory = <BountyNFT__factory>(
+    await ethers.getContractFactory("BountyNFT")
+  );
+  const bountyNFT: BountyNFT = <BountyNFT>await BountyNFTFactory.deploy();
 
   await bountyNFT.deployed();
 

@@ -4,7 +4,9 @@
   "description": "KleoverseBounty Credential NFTs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:ropsten": "hardhat deploy:BountyNFT --network ropsten",
+    "deploy:polygon": "hardhat deploy:BountyNFT --network polygon"
   },
   "author": "Sahil Vasava",
   "license": "ISC",
