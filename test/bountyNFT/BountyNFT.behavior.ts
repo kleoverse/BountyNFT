@@ -15,7 +15,7 @@ export function shouldBehaveLikeBountyNFT(): void {
         this.signers.admin.address,
         "dummyIpfsHash"
       );
-      expect(await this.bountyNFT.tokenURI(0)).to.equal("dummyIpfsHash");
+      expect(await this.bountyNFT.tokenURI(1)).to.equal("dummyIpfsHash");
     });
   });
 
@@ -29,10 +29,10 @@ export function shouldBehaveLikeBountyNFT(): void {
         this.bountyNFT.transferFrom(
           this.signers.admin.address,
           this.signers.nonAdmin.address,
-          0
+          1
         )
       ).to.be.revertedWith("BountyNFT: non transferrable token");
-      expect(await this.bountyNFT.ownerOf(0)).to.not.equal(
+      expect(await this.bountyNFT.ownerOf(1)).to.not.equal(
         this.signers.nonAdmin.address
       );
     });
@@ -44,7 +44,7 @@ export function shouldBehaveLikeBountyNFT(): void {
         this.signers.nonAdmin.address,
         "dummyIpfsHash"
       );
-      await expect(this.bountyNFT.burn(0)).to.be.revertedWith(
+      await expect(this.bountyNFT.burn(1)).to.be.revertedWith(
         "ERC721: caller is not approved or owner"
       );
     });
@@ -54,8 +54,8 @@ export function shouldBehaveLikeBountyNFT(): void {
         this.signers.nonAdmin.address,
         "dummyIpfsHash"
       );
-      await this.bountyNFT.connect(this.signers.nonAdmin).burn(0);
-      await expect(this.bountyNFT.ownerOf(0)).to.be.revertedWith(
+      await this.bountyNFT.connect(this.signers.nonAdmin).burn(1);
+      await expect(this.bountyNFT.ownerOf(1)).to.be.revertedWith(
         "ERC721: owner query for nonexistent token"
       );
     });
