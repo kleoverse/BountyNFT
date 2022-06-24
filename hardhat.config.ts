@@ -7,6 +7,8 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
+import "./tasks/deploy/bountyNFT";
+
 dotenv.config();
 
 // You need to export an object to set up your config
@@ -15,8 +17,8 @@ dotenv.config();
 const config: HardhatUserConfig = {
   solidity: "0.8.10",
   networks: {
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
+    rinkeby: {
+      url: process.env.RINKEBY_URL || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },

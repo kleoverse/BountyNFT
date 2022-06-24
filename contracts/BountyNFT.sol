@@ -10,9 +10,9 @@ contract BountyNFT is ERC721, Ownable, ERC721URIStorage {
     Counters.Counter private _tokenIdCounter;
 
 
-    constructor() ERC721("BountyNFT", "KLVRSBNFT") {
+    constructor() ERC721("Kleoverse Bounty NFT", "KLVRSBNFT") {
     }
-    
+
     function createBountyNFT(address _to, string memory _uri) public onlyOwner {
         _tokenIdCounter.increment();
         uint256 tokenId = _tokenIdCounter.current();

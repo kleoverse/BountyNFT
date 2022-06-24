@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy:ropsten": "hardhat deploy:BountyNFT --network ropsten",
+    "deploy:rinkeby": "hardhat deploy:BountyNFT --network rinkeby",
     "deploy:polygon": "hardhat deploy:BountyNFT --network polygon"
   },
   "author": "Sahil Vasava",
